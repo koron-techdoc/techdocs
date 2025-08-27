@@ -41,7 +41,8 @@ Title                                                                 |Date     
 [MHP50マニュアル日本語訳](./mhp50-manual-ja)                          |2025-01-19 |WIP
 [Merlin Transformer4Rec](./NVIDIA-Merlin/Transformers4Rec)            |2025-03-12 |Done
 [go.mod の toolchain とは?](./go-mod-toolchain)                       |2025-05-04 |Done
-[JupyterLiteでOPFSを使う](./jupyterlite+OPFS)	                      |2025-08-14 |WIP
+[JupyterLiteでOPFSを使う](./jupyterlite+OPFS)	                      |2025-08-14 |Done
+[Gemma 3 270M を試遊](./gemma-3-270m-trial)                           |2025-08-14 |WIP
 
 ## Future topics
 
