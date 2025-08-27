@@ -71,7 +71,7 @@ ninjaが nvcc (NVIDIAのコンパイララッパー)を4つ起動し、
 
 `MAX_JOBS=1` で起動することでビルドは進んでいるけど… `2` で、良いかも。
 
-[ファインチューンの結果一覧](./martian-finetune-result.html)
+[ファインチューンの結果一覧](https://koron.github.io/techdocs/gemma-3-270m-trial/martian-finetune-result.html)
 
 使ってるデータセット [bebechien/MobileGameNPC](https://huggingface.co/datasets/bebechien/MobileGameNPC) は
 地球人と異星人(訛り有)との会話という想定の25本のデータセット。
