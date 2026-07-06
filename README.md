@@ -33,7 +33,7 @@ Title                                                                 |Date     
 [Finetune HF チュートリアル](./finetune-hf-tutorial)                  |2024-07-17 |Done
 [Fedora再導入記](./fedora-reintroduction)                             |2024-07-19 |Done
 [RP2350の調査](./rp2350-investigation)                                |2024-08-09 |Done
-[パッケージマネージャへの要件](./package-manager-requirements)        |2024-08-19 |Done
+[パッケージマネージャへの要件](https://github.com/koron-techdoc/package-managers-overview) |2024-08-19 |Moved
 [RP2350用C言語プログラムをビルド](./rp2350-build-cprogram)            |2024-08-31 |Done
 [実践的なファインチューニング](https://github.com/koron/practical-finetuning)|2024-10-30 |Moved
 [kenrel32.dllを使わないプログラム](./win32-without-kernel32)          |2025-01-12 |Done
