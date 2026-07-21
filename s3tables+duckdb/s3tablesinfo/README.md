@@ -12,6 +12,9 @@ S3オブジェクトのヘッドオブジェクトを取得する。
 ```console
 $ go run main.go -arn arn:aws:s3tables:ap-northeast-1:000000000000:bucket/my-s3-tables-tutorial
 
+namespaces=[[t1]]
+
+[t1 daily_sales]
 #0 FilePath=s3://bd13fd45-e8b0-4330-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--table-s3/data/lI6hLQ/sale_date_month=2024-01/20260624_031951_00160_s5zfz-yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy.parquet
     bucket=bd13fd45-e8b0-4330-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--table-s3
     key=data/lI6hLQ/sale_date_month=2024-01/20260624_031951_00160_s5zfz-yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy.parquet
