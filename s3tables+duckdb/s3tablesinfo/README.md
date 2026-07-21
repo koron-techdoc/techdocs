@@ -49,6 +49,8 @@ AWS S3 Tablesには Iceberg REST Catalog 互換のエンドポイントがある
 https://s3tables.<region>.amazonaws.com/iceberg
 ```
 
+参考: <https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/s3-tables-integrating-open-source.html>
+
 このエンドポイントを介して、Icebergの実装(ライブラリ)がカタログ情報→メタデータ→マニフェストリスト→マニフェストファイルを取得でき、
 データファイルに相当するS3オブジェクトのURLが確定する。
 
