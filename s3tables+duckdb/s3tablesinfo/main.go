@@ -4,8 +4,12 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"io"
 	"log"
 	"net/url"
+	"os"
+	"path"
+	"path/filepath"
 	"strings"
 
 	"github.com/apache/iceberg-go/catalog/rest"
@@ -18,22 +22,29 @@ import (
 	_ "github.com/apache/iceberg-go/io/gocloud"
 )
 
+var (
+	optARN      string
+	optDownload bool
+	optOutdir   string
+)
+
 func main() {
-	var arn string
-	flag.StringVar(&arn, "arn", "", `ARN for S3 Tables bucket`)
+	flag.StringVar(&optARN, "arn", "", `ARN for S3 Tables bucket`)
+	flag.BoolVar(&optDownload, "download", false, `Download data files for tables`)
+	flag.StringVar(&optOutdir, "outdir", ".", `Output dir for downloaded data files`)
 	flag.Parse()
 
 	pp.Default.SetOmitEmpty(true)
 	pp.Default.SetColoringEnabled(false)
 
-	if err := run(context.Background(), arn); err != nil {
+	if err := run(context.Background()); err != nil {
 		log.Fatal(err)
 	}
 }
 
-func run(ctx context.Context, arn string) error {
+func run(ctx context.Context) error {
 	// Parse the ARN to extract the service name and region.
-	parts := strings.SplitN(arn, ":", 5)
+	parts := strings.SplitN(optARN, ":", 5)
 	if len(parts) < 4 {
 		return fmt.Errorf("too short ARN: want=4 got=%d", len(parts))
 	}
@@ -50,7 +61,7 @@ func run(ctx context.Context, arn string) error {
 		ctx,
 		"Arbitrary catalog name",
 		fmt.Sprintf("https://s3tables.%s.amazonaws.com/iceberg", region),
-		rest.WithWarehouseLocation(arn),
+		rest.WithWarehouseLocation(optARN),
 		rest.WithSigV4RegionSvc(region, service),
 		rest.WithAwsConfig(cfg),
 	)
@@ -89,12 +100,19 @@ func run(ctx context.Context, arn string) error {
 				// Retrieve the header of a data file from a path using the AWS S3 SDK.
 				path := task.File.FilePath()
 				fmt.Printf("#%d FilePath=%s\n", i, path)
-				headOut, err := getHead(ctx, client, path)
-				if err != nil {
-					return err
-				}
-				if headOut != nil {
-					pp.Println(headOut)
+				if optDownload {
+					_, err := getBody(ctx, client, path, optOutdir)
+					if err != nil {
+						return err
+					}
+				} else {
+					headOut, err := getHead(ctx, client, path)
+					if err != nil {
+						return err
+					}
+					if headOut != nil {
+						pp.Println(headOut)
+					}
 				}
 			}
 		}
@@ -111,7 +129,8 @@ func getHead(ctx context.Context, client *s3.Client, path string) (*s3.HeadObjec
 		return nil, err
 	}
 	bucket, key := u.Host, strings.TrimLeft(u.Path, "/")
-	fmt.Printf("    bucket=%s\n    key=%s\n", bucket, key)
+	fmt.Printf("getHead\n    bucket=%s\n    key=%s\n", bucket, key)
+
 	headOut, err := client.HeadObject(ctx, &s3.HeadObjectInput{
 		Bucket: new(bucket),
 		Key:    new(key),
@@ -121,4 +140,44 @@ func getHead(ctx context.Context, client *s3.Client, path string) (*s3.HeadObjec
 	}
 	headOut.ResultMetadata = middleware.Metadata{}
 	return headOut, nil
+}
+
+func getBody(ctx context.Context, client *s3.Client, s3url, outdir string) (string, error) {
+	// Parse S3 URL
+	u, err := url.Parse(s3url)
+	if err != nil {
+		return "", err
+	}
+	bucket, key := u.Host, strings.TrimLeft(u.Path, "/")
+	name := path.Base(key)
+	if name == "." || name == "/" {
+		return "", fmt.Errorf("invalid name: %q", name)
+	}
+	localName := filepath.Join(outdir, name)
+
+	fmt.Printf("getBody    bucket=%s\n    key=%s\n    name=%s\n    \nlocalName=%s\n", bucket, key, name, localName)
+
+	out, err := client.GetObject(ctx, &s3.GetObjectInput{
+		Bucket: new(bucket),
+		Key:    new(key),
+	})
+	if err != nil {
+		return "", err
+	}
+	defer out.Body.Close()
+
+	if err := os.MkdirAll(outdir, 0755); err != nil {
+		return "", err
+	}
+	localFile, err := os.Create(localName)
+	if err != nil {
+		return "", err
+	}
+	defer localFile.Close()
+
+	if _, err := io.Copy(localFile, out.Body); err != nil {
+		return "", err
+	}
+
+	return localName, nil
 }
