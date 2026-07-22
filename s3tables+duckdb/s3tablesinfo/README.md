@@ -57,3 +57,6 @@ https://s3tables.<region>.amazonaws.com/iceberg
 そのURLに対しては、内部的にS3の HeadObject や GetObject などの通常と同じAPI操作でアクセスできる。
 ただし、IAM権限には s3tables:GetTableData を指定し、
 リクエストのAWS署名（SigV4）対象サービス名として s3tables を正しく指定（設定）しておく必要がある。
+
+なお [S3 TablesのAPI](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Operations_Amazon_S3_Tables.html) は、S3 Tablesのリソース管理(コントロールプレーン)のためのAPI。
+SQLで言うところのDDL (Data Definition Language)
