@@ -45,9 +45,6 @@ func run(ctx context.Context, arn string) error {
 		return err
 	}
 
-	// Prepare S3 client to access the head of data file.
-	client := s3.NewFromConfig(cfg)
-
 	// Create a catalog to access S3 Tables.
 	cat, err := rest.NewCatalog(
 		ctx,
@@ -68,6 +65,9 @@ func run(ctx context.Context, arn string) error {
 	}
 	fmt.Printf("namespaces=%+v\n", namespaces)
 
+	// Prepare S3 client to access the head of data file.
+	client := s3.NewFromConfig(cfg)
+
 	// Retrieve data files for all tables from each namespace.
 	for _, ns := range namespaces {
 		for id, err := range cat.ListTables(ctx, ns) {
@@ -86,6 +86,7 @@ func run(ctx context.Context, arn string) error {
 				return err
 			}
 			for i, task := range tasks {
+				// Retrieve the header of a data file from a path using the AWS S3 SDK.
 				path := task.File.FilePath()
 				fmt.Printf("#%d FilePath=%s\n", i, path)
 				headOut, err := getHead(ctx, client, path)
