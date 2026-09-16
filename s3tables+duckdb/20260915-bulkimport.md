@@ -47,8 +47,9 @@ catalog = load_catalog(
     "r2_catalog",
     **{
         "type": "rest",
-        "uri": "https://<cloudflare-account-id>.r2.cloudflarestorage.com/r2/data-catalog/iceberg",
-        "token": "YOUR_R2_API_TOKEN"
+        "uri": "https://catalog.cloudflarestorage.com/{アカウントID}/{カタログ名}",
+        "warehouse": "{ウェアハウス名}"
+        "token": "{R2 APIトークン}"
     }
 )
 
@@ -81,9 +82,14 @@ Apache SparkにもPyIceberg同様に、
 (自前システムのバグ対応や、Iceberg自身の仕様変更への追従)
 が別途かかることに留意が必要。
 
+## 実験
+
+[./bulkimport](./bulkimport/README.md) 参照
+
 ## まとめ
 
 -   一括インポートは基本、クエリエンジン(DuckDBなど)を使う
     -   データ総量が1TBを越えるかそれに近い時は AWS Glue を使う
 -   メタデータの直接書き換えには PyIceberg を使う
     -   S3 Tables ではできない
+    -   実際にやってみたら…できた!

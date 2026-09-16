@@ -1,0 +1,177 @@
+Warehouse: bb318746479dc9ca41025bc015bc0634_eval
+└─ Namespaces (1):
+   └─ default (tables: 2)
+      ├─ Properties (2):
+      │  ├─ location: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e
+      │  └─ namespace_id: 01a01806-2161-7883-bc04-a443ba0ce53e
+      ├─ my_iceberg_table
+      │  ├─ Identifier: default.my_iceberg_table
+      │  ├─ Metadata: (location: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a01808-fb1d-7280-b8af-2262997adaf6/metadata/00000-01a01809-037c-7490-956c-1162be9eaf54.gz.metadata.json)
+      │  │  ├─ Version: V2
+      │  │  ├─ Table UUID: 01a01808-fb1d-7280-b8af-2262997adaf6
+      │  │  ├─ Location: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a01808-fb1d-7280-b8af-2262997adaf6
+      │  │  ├─ Last Updated Millis: 1787109638772 (2026-08-19T12:20:38+09:00)
+      │  │  ├─ Last Column ID: 1
+      │  │  ├─ Current Schema ID: 0
+      │  │  ├─ Default Partition Spec: 0
+      │  │  ├─ Current Snapshot ID: 7460230426796182228
+      │  │  └─ Last Sequence Number: 1
+      │  ├─ Current Schema: (ID: 0)
+      │  │  └─ [1] a: long (optional)
+      │  ├─ Current Partition Spec: unpartitioned
+      │  └─ Current Snapshot:
+      │     ├─ Snapshot ID: 7460230426796182228
+      │     ├─ Sequence Number: 1
+      │     ├─ Timestamp MS: 1787109638772 (2026-08-19T12:20:38+09:00)
+      │     ├─ Manifest List: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a01808-fb1d-7280-b8af-2262997adaf6/metadata/snap-7460230426796182228-d9121ef4-a77f-4630-a3b9-e6c37d398942.avro
+      │     │  └─ [0] Manifest
+      │     │     ├─ Version: 2
+      │     │     ├─ File Path: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a01808-fb1d-7280-b8af-2262997adaf6/metadata/8629b85c-b704-4aa4-a2a0-ac526f554bd7-m0.avro
+      │     │     ├─ Length: 2154
+      │     │     ├─ Partition Spec ID: 0
+      │     │     ├─ Snapshot ID: 7460230426796182228
+      │     │     ├─ Added Data Files: 1
+      │     │     ├─ Existing Data Files: 0
+      │     │     ├─ Added Rows: 4
+      │     │     ├─ Existing Rows: 0
+      │     │     ├─ Sequence Number: 1
+      │     │     ├─ Min Sequence Num: 1
+      │     │     └─ Manifest Entries:
+      │     │        └─ [0] Manifest Entry
+      │     │           ├─ Status: 1:ADDED
+      │     │           ├─ Snapshot ID: 7460230426796182228
+      │     │           ├─ Sequence Num: 1
+      │     │           ├─ File SequenceNum: 1
+      │     │           └─ Data File
+      │     │              ├─ Content Type: Data
+      │     │              ├─ File Path: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a01808-fb1d-7280-b8af-2262997adaf6/data/01a01809-004a-7894-b1bc-9534c9180550.parquet
+      │     │              ├─ File Format: parquet
+      │     │              ├─ Partition: map[]
+      │     │              ├─ Count: 4
+      │     │              ├─ File Size Bytes: 226
+      │     │              ├─ Null Value Counts: map[1:0]
+      │     │              ├─ Lower Bound Values: map[1:[0 0 0 0 0 0 0 0]]
+      │     │              └─ Upper Bound Values: map[1:[3 0 0 0 0 0 0 0]]
+      │     ├─ Summary:
+      │     │  ├─ Operation: append
+      │     │  └─ Properties (8):
+      │     │     ├─ added-data-files: 1
+      │     │     ├─ added-records: 4
+      │     │     ├─ deleted-data-files: 0
+      │     │     ├─ deleted-records: 0
+      │     │     ├─ total-data-files: 1
+      │     │     ├─ total-delete-files: 0
+      │     │     ├─ total-position-deletes: 0
+      │     │     └─ total-records: 4
+      │     └─ Schema ID: 0
+      └─ daily_sales
+         ├─ Identifier: default.daily_sales
+         ├─ Metadata: (location: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a084a0-54b7-7be0-9d37-e790fb0b1012/metadata/00008-01a0a8d5-d25a-7cd2-9548-a7dacb59fb1b.gz.metadata.json)
+         │  ├─ Version: V2
+         │  ├─ Table UUID: 01a084a0-54b7-7be0-9d37-e790fb0b1012
+         │  ├─ Location: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a084a0-54b7-7be0-9d37-e790fb0b1012
+         │  ├─ Last Updated Millis: 1789538978743 (2026-09-16T15:09:38+09:00)
+         │  ├─ Last Column ID: 3
+         │  ├─ Current Schema ID: 0
+         │  ├─ Default Partition Spec: 0
+         │  ├─ Current Snapshot ID: 6230909222005612047
+         │  ├─ Properties (1):
+         │  │  └─ schema.name-mapping.default: [{"names":["sale_date"],"field-id":1},{"names":["product_category"],"field-id":2},{"names":["sales_amount"],"field-id":3}]
+         │  └─ Last Sequence Number: 5
+         ├─ Current Schema: (ID: 0)
+         │  ├─ [1] sale_date: date (optional)
+         │  ├─ [2] product_category: string (optional)
+         │  └─ [3] sales_amount: double (optional)
+         ├─ Partition Spec: (ID: 0)
+         │  └─ month_sale_date_1 (Field ID:1000) : month(sale_date)
+         └─ Current Snapshot:
+            ├─ Snapshot ID: 6230909222005612047
+            ├─ Parent Snapshot ID: 64342069251976
+            ├─ Sequence Number: 5
+            ├─ Timestamp MS: 1789538978743 (2026-09-16T15:09:38+09:00)
+            ├─ Manifest List: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a084a0-54b7-7be0-9d37-e790fb0b1012/metadata/snap-6230909222005612047-0-1d8aa9c6-bf55-483d-b64c-b8089c1ad163.avro
+            │  ├─ [0] Manifest
+            │  │  ├─ Version: 2
+            │  │  ├─ File Path: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a084a0-54b7-7be0-9d37-e790fb0b1012/metadata/1d8aa9c6-bf55-483d-b64c-b8089c1ad163-m0.avro
+            │  │  ├─ Length: 4592
+            │  │  ├─ Partition Spec ID: 0
+            │  │  ├─ Snapshot ID: 6230909222005612047
+            │  │  ├─ Added Data Files: 1
+            │  │  ├─ Existing Data Files: 0
+            │  │  ├─ Added Rows: 9
+            │  │  ├─ Existing Rows: 0
+            │  │  ├─ Sequence Number: 5
+            │  │  ├─ Min Sequence Num: 5
+            │  │  └─ Manifest Entries:
+            │  │     └─ [0] Manifest Entry
+            │  │        ├─ Status: 1:ADDED
+            │  │        ├─ Snapshot ID: 6230909222005612047
+            │  │        ├─ Sequence Num: 5
+            │  │        ├─ File SequenceNum: 5
+            │  │        └─ Data File
+            │  │           ├─ Content Type: Data
+            │  │           ├─ File Path: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a084a0-54b7-7be0-9d37-e790fb0b1012/data/daily_sales-202403.parquet
+            │  │           ├─ File Format: PARQUET
+            │  │           ├─ Partition: map[1000:650]
+            │  │           ├─ Count: 9
+            │  │           ├─ File Size Bytes: 612
+            │  │           ├─ Column Sizes: map[1:47 2:95 3:76]
+            │  │           ├─ Value Counts: map[1:9 2:9 3:9]
+            │  │           ├─ Null Value Counts: map[1:0 2:0 3:0]
+            │  │           ├─ Lower Bound Values: map[1:[81 77 0 0] 2:[68 101 115 107 116 111 112] 3:[0 0 0 0 0 0 52 64]]
+            │  │           └─ Upper Bound Values: map[1:[84 77 0 0] 2:[77 111 117 115 101] 3:[0 0 0 0 0 64 159 64]]
+            │  └─ [1] Manifest
+            │     ├─ Version: 2
+            │     ├─ File Path: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a084a0-54b7-7be0-9d37-e790fb0b1012/metadata/48151aa4-aa78-4814-8dd2-81ffe32b6124-m0.avro
+            │     ├─ Length: 2765
+            │     ├─ Partition Spec ID: 0
+            │     ├─ Snapshot ID: 3382049451819024693
+            │     ├─ Added Data Files: 2
+            │     ├─ Existing Data Files: 0
+            │     ├─ Added Rows: 9
+            │     ├─ Existing Rows: 0
+            │     ├─ Sequence Number: 1
+            │     ├─ Min Sequence Num: 1
+            │     └─ Manifest Entries:
+            │        ├─ [0] Manifest Entry
+            │        │  ├─ Status: 1:ADDED
+            │        │  ├─ Snapshot ID: 3382049451819024693
+            │        │  ├─ Sequence Num: 1
+            │        │  ├─ File SequenceNum: 1
+            │        │  └─ Data File
+            │        │     ├─ Content Type: Data
+            │        │     ├─ File Path: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a084a0-54b7-7be0-9d37-e790fb0b1012/data/month_sale_date_1=648/01a084a0-9551-75c0-b9f4-02c7d10fdf4e.parquet
+            │        │     ├─ File Format: parquet
+            │        │     ├─ Partition: map[1000:648]
+            │        │     ├─ Count: 3
+            │        │     ├─ File Size Bytes: 538
+            │        │     ├─ Null Value Counts: map[1:0 2:0 3:0]
+            │        │     ├─ Lower Bound Values: map[1:[25 77 0 0] 2:[76 97 112 116 111 112] 3:[0 0 0 0 0 64 111 64]]
+            │        │     └─ Upper Bound Values: map[1:[26 77 0 0] 2:[77 111 110 105 116 111 114] 3:[0 0 0 0 0 24 149 64]]
+            │        └─ [1] Manifest Entry
+            │           ├─ Status: 1:ADDED
+            │           ├─ Snapshot ID: 3382049451819024693
+            │           ├─ Sequence Num: 1
+            │           ├─ File SequenceNum: 1
+            │           └─ Data File
+            │              ├─ Content Type: Data
+            │              ├─ File Path: s3://eval/__r2_data_catalog/01a01806-2161-7883-bc04-a443ba0ce53e/01a084a0-54b7-7be0-9d37-e790fb0b1012/data/month_sale_date_1=649/01a084a0-9552-7780-ade6-603d6e3238ae.parquet
+            │              ├─ File Format: parquet
+            │              ├─ Partition: map[1000:649]
+            │              ├─ Count: 6
+            │              ├─ File Size Bytes: 592
+            │              ├─ Null Value Counts: map[1:0 2:0 3:0]
+            │              ├─ Lower Bound Values: map[1:[42 77 0 0] 2:[75 101 121 98 111 97 114 100] 3:[0 0 0 0 0 0 57 64]]
+            │              └─ Upper Bound Values: map[1:[44 77 0 0] 2:[77 111 117 115 101] 3:[0 0 0 0 0 192 146 64]]
+            ├─ Summary:
+            │  ├─ Operation: append
+            │  └─ Properties (8):
+            │     ├─ added-data-files: 1
+            │     ├─ added-files-size: 612
+            │     ├─ added-records: 9
+            │     ├─ changed-partition-count: 1
+            │     ├─ total-data-files: 3
+            │     ├─ total-delete-files: 0
+            │     ├─ total-position-deletes: 0
+            │     └─ total-records: 18
+            └─ Schema ID: 0
