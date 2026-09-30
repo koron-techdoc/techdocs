@@ -84,6 +84,6 @@ Iceberg REST Catalogを自前でホストするコストが許容可能なら、
 - [Lakekeeper][lakekeeper] - Rust
 - [Project Nessie][nessie] - Java (ブランチやマージのようなことがきる)
 
-[poralis]:https://polaris.apache.org/
+[polaris]:https://polaris.apache.org/
 [lakekeeper]:https://github.com/lakekeeper/lakekeeper
 [nessie]:https://projectnessie.org/
