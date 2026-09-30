@@ -3,7 +3,7 @@
 ## TL;DR
 
 S3上の既存parquetをIceberg REST Catalogに最小コストで統合することは、現時点では現実的な選択肢とは言えない。
-通常のクエリエンジンによるコピーを伴う挿入か、Iceberg v4 のマルチクラウド構成を待つべき。
+通常のクエリエンジンによるコピーを伴う挿入か、Glue Data Catalogを使うか、Iceberg v4 のマルチクラウド構成を待つべき。
 
 ## 出発点: S3上のparquetのIceberg REST Catalog化
 
@@ -87,3 +87,9 @@ Iceberg REST Catalogを自前でホストするコストが許容可能なら、
 [polaris]:https://polaris.apache.org/
 [lakekeeper]:https://github.com/lakekeeper/lakekeeper
 [nessie]:https://projectnessie.org/
+
+## 補足: AWS Glue Data Catalog
+
+Glue Data Catalog を使えば、既存のS3上のparquetにIceberg互換のAPIを提供できる。
+もちろん別途メンテナンスに伴うコスト(DPU料金を含む)が生じる。
+バッチ的なデータ追加が主であればGlueが向いている。
