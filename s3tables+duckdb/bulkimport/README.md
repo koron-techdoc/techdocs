@@ -64,7 +64,7 @@ PyIceberg を venv 環境にセットアップ
 ```console
 $ python -m venv venv
 
-$ pip install --upgrade pip
+$ python -m pip install --upgrade pip
 
 $ pip install "pyiceberg[s3fs,hive,pyarrow]"
 ```
