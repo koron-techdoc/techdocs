@@ -2,6 +2,18 @@
 
 [前回](./README.md) の Glue への焼き直し。
 
+## PyIceberg のセットアップ
+
+PyIceberg を venv 環境にセットアップ
+
+```console
+$ python -m venv venv
+
+$ python -m pip install --upgrade pip
+
+$ pip install "pyiceberg[glue,s3fs,hive,pyarrow]"
+```
+
 ## PyIcebergを用いたファイルの追加
 
 テーブルをIceberg Catalogで作ってから、PyIceberg の `add_files` でデータ追加
@@ -13,6 +25,8 @@ real    0m23.540s
 user    0m0.509s
 sys     0m0.077s
 ```
+
+ちょっと時間がかかる。
 
 `glue_add_files.py`
 
