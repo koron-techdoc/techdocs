@@ -57,6 +57,7 @@ CREATE SECRET s3_secret(TYPE s3, PROVIDER credential_chain);
 
 名称には `s3_secret` を指定してる。
 省略すればデフォルトシークレットの指定となる。
+複数のシークレットが設定可能なのは、アクセス対象となるリソース毎に異なるシークレットを指定できるという、DuckDBの機能に基づく。
 
 以下でカタログに接続する。
 
