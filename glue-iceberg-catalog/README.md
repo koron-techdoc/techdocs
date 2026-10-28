@@ -113,6 +113,7 @@ DuckDBからINSERTを実行した差異のデータの格納先になる。
 PyIcebergを使って、S3上の既存parquetファイルを追加できる。
 
 サンプルスクリプト:
+AWS用の credentials は設置してあるが、PyIceberg 用の設定は特にはしていない。
 
 ```console
 $ cat glue_add_files.py
